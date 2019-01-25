@@ -30,3 +30,29 @@
     transform: rotate(360deg);
   }
 }
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  height: 100px;
+  background: #ab2a19;
+  color: white;
+}
+
+.form {
+  background: #3ad886;
+  width: 300px;
+}
+
+.form img {
+  max-height: 150px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.product img {
+  max-height: 150px;
+}
