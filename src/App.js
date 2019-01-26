@@ -10,48 +10,20 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      inventory: [
-        {
-          id: 1,
-          name: "Xbox",
-          price: 500,
-          img:
-            "https://images-na.ssl-images-amazon.com/images/I/61FYKKfyJHL._SL1400_.jpg"
-        },
-        {
-          id: 2,
-          name: "PS4",
-          price: 400,
-          img:
-            "https://images-na.ssl-images-amazon.com/images/I/41GGPRqTZtL._AC_SX430_.jpg"
-        },
-        {
-          id: 3,
-          name: "Switch",
-          price: 300,
-          img:
-            "https://images-na.ssl-images-amazon.com/images/I/61445UADu9L._SL1000_.jpg"
-        },
-        {
-          id: 4,
-          name: "GTX 2080TI",
-          price: 1500,
-          img:
-            "https://images-na.ssl-images-amazon.com/images/I/514km%2BZccrL._SL1000_.jpg"
-        }
-      ]
+      inventory: []
     };
+
+    // this.componentDidMount = this.componentDidMount.bind(this);
   }
 
-  // componentDidMount() {
-  //   axios.get("/api/products").then(response => {
-  //     this.setState({ products: response.data });
-  //     console.log(this.state.products);
-  //   });
-  // }
+  componentDidMount() {
+    axios.get("/api/inventory").then(res => {
+      this.setState({ inventory: res.data });
+    });
+  }
 
   render() {
-    // console.log(this.state.products);
+    // console.log(this.state.inventory);
     return (
       <div>
         <div>
