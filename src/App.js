@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -22,6 +21,12 @@ class App extends Component {
     });
   }
 
+  handleGet = () => {
+    axios.get("/api/inventory").then(res => {
+      this.setState({ inventory: res.data });
+    });
+  };
+
   render() {
     // console.log(this.state.inventory);
     return (
@@ -30,7 +35,7 @@ class App extends Component {
           <Header />
         </div>
         <Dashboard inventory={this.state.inventory} />
-        <Form />
+        <Form handleGet={this.handleGet} />
       </div>
     );
   }
